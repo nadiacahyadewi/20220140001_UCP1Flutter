@@ -97,6 +97,45 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
 
+              TextFormField(
+                obscureText: !isPasswordVisible,
+                controller: passwordController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+
+                  hintText: 'Password',
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Icon(Icons.lock),
+                  ),
+
+                  suffixIcon: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isPasswordVisible = !isPasswordVisible;
+                        });
+                      },
+                      child: Icon(
+                        isPasswordVisible
+                            ? Icons.visibility_rounded
+                            : Icons.visibility_off_rounded,
+                      ),
+                    ),
+                  ),
+                ),
+
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password tidak boleh kosong';
+                  }
+                  return null;
+                },
+              ),
+
 
             ],
           ),
