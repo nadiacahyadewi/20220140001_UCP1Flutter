@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/home_page.dart';
 import 'package:ucp1/login_page.dart';
+import 'package:flutter/services.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -14,7 +15,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController namalengkapController = TextEditingController();
   final TextEditingController noHPController = TextEditingController();
-  final TextEditingController konfirpasswordController = TextEditingController();
+  final TextEditingController konfirpasswordController =
+      TextEditingController();
 
   bool isPasswordVisible = false;
   bool isKonfirVisible = false;
@@ -152,6 +154,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'No HP tidak boleh kosong';
+                            }
+                            if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                              return 'No HP hanya boleh berisi angka';
                             }
                             return null;
                           },
