@@ -144,7 +144,9 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomePage(),
+                          builder: (context) => HomePage(
+                            email: emailController.text,
+                          ),
                         ),
                       );
                     }
@@ -154,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                         12,
-                      ), // Atur sesuai kebutuhan
+                      ), 
                     ),
                   ),
                   child: Text('Masuk'),

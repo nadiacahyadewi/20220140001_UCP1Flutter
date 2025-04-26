@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:ucp1/login_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String email;
+  const HomePage({
+    super.key,
+    required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -29,19 +32,16 @@ class HomePage extends StatelessWidget {
                       const SizedBox(width: 15),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children:  [
                           Text(
                             'Selamat Datang',
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                           Text(
-                            'Admin',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
+                            '$email',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
+                          
                         ],
                       ),
                     ],
