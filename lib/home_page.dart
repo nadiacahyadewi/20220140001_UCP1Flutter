@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                         Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const PiketPage(),
+                          builder: (context) => PiketPage(email: email),
                         ),
                       );
                       },
