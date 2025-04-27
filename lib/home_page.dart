@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/barang_page.dart';
 import 'package:ucp1/login_page.dart';
+import 'package:ucp1/pelanggan_page.dart';
 import 'package:ucp1/piket_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -134,6 +136,12 @@ class HomePage extends StatelessWidget {
                     height: 150,
                     child: FilledButton(
                       onPressed: () {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PiketPage(),
+                        ),
+                      );
                       },
                       style: FilledButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -166,6 +174,12 @@ class HomePage extends StatelessWidget {
                     height: 150,
                     child: FilledButton(
                       onPressed: () {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PelangganPage(),
+                        ),
+                      );
                       },
                       style: FilledButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -196,6 +210,12 @@ class HomePage extends StatelessWidget {
                 height: 150,
                 child: FilledButton(
                   onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BarangPage(),
+                        ),
+                      );
                   },
                   style: FilledButton.styleFrom(
                     backgroundColor: Colors.green,
