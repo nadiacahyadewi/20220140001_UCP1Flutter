@@ -9,7 +9,6 @@ class PelangganPage extends StatefulWidget {
 }
 
 class _PelangganPageState extends State<PelangganPage> {
-  final _formKey = GlobalKey<FormState>();
   final TextEditingController namacustController = TextEditingController();
   final TextEditingController emailcustController = TextEditingController();
   final TextEditingController noHPcustController = TextEditingController();
@@ -249,7 +248,15 @@ class _PelangganPageState extends State<PelangganPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailpelangganPage(),
+                          builder:
+                              (context) => DetailpelangganPage(
+                                nama: namacustController.text,
+                                email: emailcustController.text,
+                                noHp: noHPcustController.text,
+                                alamat: alamatcustController.text,
+                                provinsi: provinsicustController.text,
+                                kodePos: kodeposcustController.text,
+                              ),
                         ),
                       );
                     }
@@ -269,28 +276,24 @@ class _PelangganPageState extends State<PelangganPage> {
                 height: 53,
                 child: OutlinedButton(
                   onPressed: () {
-                    
                     namacustController.clear();
                     emailcustController.clear();
                     noHPcustController.clear();
                     alamatcustController.clear();
                     provinsicustController.clear();
                     kodeposcustController.clear();
-                    _formKey.currentState
-                        ?.reset(); 
+                    _formKey.currentState?.reset();
                   },
 
                   style: OutlinedButton.styleFrom(
-                    
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  
+
                   child: const Text(
                     'Reset',
-                    style: TextStyle(color: Colors.red, fontSize: 16,),
-                    
+                    style: TextStyle(color: Colors.red, fontSize: 16),
                   ),
                 ),
               ),
