@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/login_page.dart';
+import 'package:ucp1/piket_page.dart';
 
 class HomePage extends StatelessWidget {
   final String email;
@@ -73,10 +74,8 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/background.jpg',
-                ), 
-                fit: BoxFit.cover, 
+                image: AssetImage('assets/images/background.jpg'),
+                fit: BoxFit.cover,
               ),
             ),
             child: Row(
@@ -121,6 +120,104 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+
+          SizedBox(height: 30), 
+
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 178,
+                    height: 150,
+                    child: FilledButton(
+                      onPressed: () {
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.event_repeat_outlined,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Data Piket',
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(width: 16), 
+                  SizedBox(
+                    width: 178,
+                    height: 150,
+                    child: FilledButton(
+                      onPressed: () {
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.dashboard_customize_rounded, size: 40, color: Colors.white),
+                          SizedBox(height: 8),
+                          Text(
+                            'Data Pelanggan',
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 16), 
+              SizedBox(
+                width: 370, 
+                height: 150,
+                child: FilledButton(
+                  onPressed: () {
+                  },
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.receipt_long_outlined, size: 40, color: Colors.white),
+                      SizedBox(height: 8),
+                      Text(
+                        'Barang Masuk/Keluar',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
