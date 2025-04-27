@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/detailpelanggan_page.dart';
 
 class PelangganPage extends StatefulWidget {
   const PelangganPage({super.key});
@@ -8,6 +9,7 @@ class PelangganPage extends StatefulWidget {
 }
 
 class _PelangganPageState extends State<PelangganPage> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController namacustController = TextEditingController();
   final TextEditingController emailcustController = TextEditingController();
   final TextEditingController noHPcustController = TextEditingController();
@@ -118,14 +120,14 @@ class _PelangganPageState extends State<PelangganPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            hintText: "No HP",
+                            hintText: "No Hp",
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'No HP tidak boleh kosong';
+                              return 'No Hp tidak boleh kosong';
                             }
                             if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
-                              return 'No HP hanya boleh berisi angka';
+                              return 'No Hp hanya boleh berisi angka';
                             }
                             return null;
                           },
@@ -217,7 +219,7 @@ class _PelangganPageState extends State<PelangganPage> {
                         ),
                         const SizedBox(height: 8),
                         TextFormField(
-                          controller: alamatcustController,
+                          controller: kodeposcustController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -235,6 +237,62 @@ class _PelangganPageState extends State<PelangganPage> {
                     ),
                   ),
                 ],
+              ),
+
+              SizedBox(height: 100),
+              SizedBox(
+                width: 1000,
+                height: 56,
+                child: FilledButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailpelangganPage(),
+                        ),
+                      );
+                    }
+                  },
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  child: Text('Simpan'),
+                ),
+              ),
+              SizedBox(height: 25),
+              SizedBox(
+                width: 1000,
+                height: 53,
+                child: OutlinedButton(
+                  onPressed: () {
+                    
+                    namacustController.clear();
+                    emailcustController.clear();
+                    noHPcustController.clear();
+                    alamatcustController.clear();
+                    provinsicustController.clear();
+                    kodeposcustController.clear();
+                    _formKey.currentState
+                        ?.reset(); 
+                  },
+
+                  style: OutlinedButton.styleFrom(
+                    
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  
+                  child: const Text(
+                    'Reset',
+                    style: TextStyle(color: Colors.red, fontSize: 16,),
+                    
+                  ),
+                ),
               ),
             ],
           ),
