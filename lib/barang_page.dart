@@ -58,29 +58,6 @@ class _BarangPageState extends State<BarangPage> {
     });
   }
 
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      print('Tanggal: $_selectedDate');
-      print('Jenis Transaksi: $_selectedJenisTransaksi');
-      print('Jenis Barang: $_selectedJenisBarang');
-      print('Jumlah Barang: ${_jumlahBarangController.text}');
-      print('Harga Satuan: ${_hargaSatuanController.text}');
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Data berhasil disimpan')));
-
-      setState(() {
-        _selectedDate = null;
-        _selectedJenisTransaksi = null;
-        _selectedJenisBarang = null;
-        _jumlahBarangController.clear();
-        _hargaSatuanController.clear();
-      });
-
-      _formKey.currentState!.reset();
-    }
-  }
 
   @override
   void dispose() {
