@@ -269,9 +269,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             if (value == null || value.isEmpty) {
                               return 'Konfirmasi Password tidak boleh kosong';
                             }
-                            if (value != passwordController.text) {
-                              return 'Konfirmasi Password harus sama dengan Password';
-                            }
                             return null;
                           },
                         ),
@@ -288,14 +285,26 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: FilledButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(
-                            email: emailController.text,
+                      if (passwordController.text !=
+                          konfirpasswordController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Password tidak sama',
+                            ),
+                            backgroundColor: Colors.red,
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    HomePage(email: emailController.text),
+                          ),
+                        );
+                      }
                     }
                   },
                   style: FilledButton.styleFrom(
