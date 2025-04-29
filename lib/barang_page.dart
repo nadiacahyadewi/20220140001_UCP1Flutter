@@ -248,7 +248,7 @@ class _BarangPageState extends State<BarangPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 50),
                 SizedBox(
                   width: 1000,
                   height: 56,
@@ -283,7 +283,7 @@ class _BarangPageState extends State<BarangPage> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: Text('Simpan'),
+                    child: Text('Submit'),
                   ),
                 ),
               ],
